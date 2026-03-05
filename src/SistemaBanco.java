@@ -8,7 +8,7 @@ public class SistemaBanco{
        cuentas.add(new CuentaBancaria( "Juan Ortiz", 1500.0));
        cuentas.add(new CuentaBancaria("Roberto Carlis", 0.00));
        cuentas.add(new CuentaBancaria("Santiago vicens", 1000.0));
-       cuentas.add(new CuentaBancaria("Agustin Alaniz ", 5000.0));
+       cuentas.add(new CuentaBancaria("Agustin Alaniz", 5000.0));
        int opcion;
        do {
            System.out.println("Bienvenido. " +
@@ -17,7 +17,8 @@ public class SistemaBanco{
                    "3 Mostrar saldo. " +
                    "4 Retirar Dinero. " +
                    "5 Transferir Dinero. " +
-                   "6 Salir. ");
+                   "6 Mostrar todas las cuentas." +
+                   "7 Salir. ");
            opcion = sc.nextInt();
            sc.nextLine();
            if (opcion == 1) {
@@ -67,17 +68,16 @@ public class SistemaBanco{
            } else if (opcion == 4) {
                System.out.println("Ingrese el nombre de la cuenta a retirar: ");
                String nombreBuscado = sc.nextLine();
-
                boolean encontrado = false;
-
                for (CuentaBancaria p : cuentas) {
+
                    if (nombreBuscado.equalsIgnoreCase(p.getTitular())) {
                        System.out.println("Ingrese el monto a retirar: ");
                        double monto = sc.nextDouble();
                        sc.nextLine();
 
                        p.retirar(monto);
-                       System.out.println("Retiro Exitoso.");
+
                        encontrado = true;
                        break;
                    }
@@ -106,11 +106,16 @@ public class SistemaBanco{
                if (cO != null && cD != null) {
                    cO.transferir(cD, monto);
                }
+               else {
+                   System.out.println("Nombre de usuario no encontrado o monto insuficiente");
+               }
+           } else if (opcion == 6){
+               for (CuentaBancaria p : cuentas){
+                   System.out.println(p.Tostring());
+               }
            }
        }
-           while (opcion != 6);
+           while (opcion != 7);
 
-
-
- }
+    }
 }

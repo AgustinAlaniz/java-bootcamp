@@ -27,13 +27,18 @@ private double saldo;
  }
 
  public String Tostring() {
-     return ("El nombre del titular es: " + titular + "y su saldo: " + saldo);
+     return ("Titular: " + titular + "Saldo: " + saldo);
  }
  public void depositar(double monto) {
   this.saldo = this.saldo + monto;
  }
  public void retirar(double monto) {
-  this.saldo = this.saldo - monto;
+     if(saldo >= monto){
+         this.saldo = this.saldo - monto;
+     }else{
+         System.out.println("Saldo insuficiente");
+     }
+
  }
   public void transferir(CuentaBancaria cD, double monto) {
       if (cD != null && this.saldo >= monto) {
