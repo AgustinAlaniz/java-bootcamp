@@ -56,6 +56,7 @@ public class SistemaBanco{
                for (CuentaBancaria p : cuentas) {
                    if (c.equalsIgnoreCase(p.getTitular())) {
                        System.out.println("El saldo de su cuenta es: " + p.getSaldo());
+                    encontrado = true;
                    }
 
                }

@@ -26,8 +26,8 @@ private double saldo;
   this.saldo = newSaldo;
  }
 
- public void Tostring(){
-  System.out.println("El nombre del titular es: " + titular + "y su saldo: "+ saldo);
+ public String Tostring() {
+     return ("El nombre del titular es: " + titular + "y su saldo: " + saldo);
  }
  public void depositar(double monto) {
   this.saldo = this.saldo + monto;
@@ -46,10 +46,5 @@ private double saldo;
 
   }
 
-  public void  MostrarCuentas(ArrayList<CuentaBancaria>cuentas){
-    for (CuentaBancaria p : cuentas ){
-     System.out.println(toString());
-    }
-  }
 
 }
