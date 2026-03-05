@@ -11,7 +11,7 @@ private double saldo;
   this.titular =titular;
   this.saldo =saldo;
  }
- Scanner sc = new Scanner(System.in);
+
  public String getTitular(){
   return titular;
  }
